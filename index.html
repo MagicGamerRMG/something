@@ -1,0 +1,55 @@
+
+<!-- Yes i made this w/ChatGPT (i know your here shadow ) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Something...</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+
+    #imageToShow {
+        opacity: 0;
+        transition: opacity 3s;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+</head>
+<body onclick="showImage()">
+    <img id="imageToShow" src="" alt="Loaded Image">
+    
+    <script>
+        var currentImageIndex = 0;
+        var images = [
+            "https://i.imgur.com/URgC7W5.jpg"
+        ];
+        
+        function showImage() {
+            var img = document.getElementById("imageToShow");
+            
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            
+            if (img.style.opacity === "0" || img.style.opacity === "") {
+                document.title = "??????????????";
+                img.src = images[currentImageIndex];
+                setTimeout(function() {
+                    img.style.opacity = "1";
+                }, 0);
+            }
+        }
+    </script>
+</body>
+</html>
